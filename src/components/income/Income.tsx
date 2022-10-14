@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import IncomeTable from "./IncomeTable";
+import IncomeTable from "./incomeTable/IncomeTable";
 import { css } from "@emotion/react";
 import {flexCenterCol} from "../common/styles"
 
