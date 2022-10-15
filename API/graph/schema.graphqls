@@ -1,0 +1,58 @@
+type User {
+  id: ID!
+  name: String!
+}
+
+type Income {
+  id: ID!
+  month: String!
+  salary: Int
+  other: Int
+  user: User!
+}
+
+type Outcome {
+  id: ID!
+  month: String!
+  buildingFees: Int
+  electricity: Int
+  gas: Int
+  cityFees: Int
+  water: Int
+  partner: Int
+  groceries: Int
+  other: Int
+  user: User!
+}
+
+type Query {
+  incomes(userId: ID): [Income]!
+  outcomes(userId: ID): [Outcome]!
+}
+
+input NewIncomeInput {
+  id: ID!
+  month: String!
+  salary: Int
+  other: Int
+  user: ID!
+}
+
+input NewOutcomeInput {
+  id: ID!
+  month: String!
+  buildingFees: Int
+  electricity: Int
+  gas: Int
+  cityFees: Int
+  water: Int
+  partner: Int
+  groceries: Int
+  other: Int
+  user: ID!
+}
+
+type Mutation {
+  createIncome(input: NewIncomeInput!): Income!
+  createOutcome(input: NewOutcomeInput!): Outcome!
+}
