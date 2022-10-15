@@ -12,13 +12,10 @@ import {
   GridActionsCellItem,
   GridRowId,
   GridRowModel,
-  GridColTypeDef,
 } from "@mui/x-data-grid";
 import { css } from "@emotion/react";
 import { useState } from "react";
 import EditToolbar from "./EditToolbar";
-import initialRows from "./data";
-import { currencyFormatter, dateFormatter } from "./utils";
 
 const tableContainer = css({
   height: 500,
@@ -31,27 +28,9 @@ const tableContainer = css({
   },
 });
 
-const usdPrice: GridColTypeDef = {
-  type: "number",
-  width: 130,
-  valueFormatter: ({ value }) => currencyFormatter.format(value),
-  cellClassName: "font-tabular-nums",
-};
 
-const statelessColumns = [
-  {
-    field: "month",
-    headerName: "Month",
-    type: "date",
-    width: 180,
-    valueFormatter: ({ value }) => dateFormatter.format(value),
-    editable: true,
-  },
-  { field: "salary", headerName: "Salary", ...usdPrice, editable: true },
-  { field: "other", headerName: "Other", ...usdPrice, editable: true },
-];
 
-const IncomeTable = () => {
+const Table = ({ initialRows, statelessColumns }) => {
   const [rows, setRows] = useState(initialRows);
   const [rowModesModel, setRowModesModel] = useState<GridRowModesModel>({});
 
@@ -158,4 +137,4 @@ const IncomeTable = () => {
   );
 };
 
-export default IncomeTable;
+export default Table;
