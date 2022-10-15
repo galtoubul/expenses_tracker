@@ -16,13 +16,13 @@ const iconsAndText = [
   },
   {
     icon: <CallReceivedIcon color="action" />,
-    text: "Incomes",
-    path: "/incomes",
+    text: "income",
+    path: "/income",
   },
   {
     icon: <CallMadeIcon color="action" />,
-    text: "Outcomes",
-    path: "/outcomes",
+    text: "Outcome",
+    path: "/outcome",
   },
 ];
 
