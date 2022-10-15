@@ -2,7 +2,7 @@
 import Table from "../common/table/Table";
 import { css } from "@emotion/react";
 import { flexCenterCol } from "../common/styles";
-import initialRows from "./data";
+import { initialRows } from "./data";
 import { dateFormatter, ilsPrice } from "../common/table/utils";
 
 const mainContainer = css([flexCenterCol, { width: "75%" }]);

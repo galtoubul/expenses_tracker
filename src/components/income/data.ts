@@ -1,7 +1,7 @@
 import { GridRowsProp } from "@mui/x-data-grid";
 import { randomCreatedDate, randomId } from "@mui/x-data-grid-generator";
 
-const initialRows: GridRowsProp = [
+export const initialRows: GridRowsProp = [
   {
     id: randomId(),
     month: randomCreatedDate(),
@@ -27,5 +27,3 @@ const initialRows: GridRowsProp = [
     other: 250,
   },
 ];
-
-export default initialRows;

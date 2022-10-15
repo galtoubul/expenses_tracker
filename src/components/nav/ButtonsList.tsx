@@ -7,6 +7,7 @@ import DashboardIcon from "@mui/icons-material/Dashboard";
 import CallMadeIcon from "@mui/icons-material/CallMade";
 import CallReceivedIcon from "@mui/icons-material/CallReceived";
 import { Link } from "react-router-dom";
+import { useTheme } from "@mui/material/styles";
 
 const iconsAndText = [
   {
@@ -27,10 +28,17 @@ const iconsAndText = [
 ];
 
 const ButtonsList = ({ open }) => {
+  const theme = useTheme();
   return (
     <List>
       {iconsAndText.map(({ icon, text, path }) => (
-        <ListItem key={text} disablePadding sx={{ display: "block" }}>
+        <ListItem
+          key={text}
+          component={Link}
+          to={path}
+          disablePadding
+          sx={{ display: "block" }}
+        >
           <ListItemButton
             sx={{
               minHeight: 48,
@@ -45,9 +53,15 @@ const ButtonsList = ({ open }) => {
                 justifyContent: "center",
               }}
             >
-              <Link to={path}>{icon}</Link>
+              {icon}
             </ListItemIcon>
-            <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+            <ListItemText
+              primary={text}
+              sx={{
+                opacity: open ? 1 : 0,
+                color: theme.palette.grey[600],
+              }}
+            />
           </ListItemButton>
         </ListItem>
       ))}
